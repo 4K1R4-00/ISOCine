@@ -7,12 +7,37 @@ import java.util.*;
 
 public class ISOCine {
 
+    private static boolean CheckError(String x, String y){
+        return x.matches(y);
+    }
+
+    private static void isNumber(int s){
+        boolean incorrectInput = true;
+        Scanner sc = new Scanner(System.in);
+        while (incorrectInput) {
+
+            if (sc.hasNextInt()) {
+                int n = sc.nextInt();
+                if (n < 0) {
+                System.out.print("Invalid Data! Re-enter: ");
+
+                } else {
+                    // do anything else
+                    s = n;
+                    incorrectInput = false;
+                }
+            } else {
+                sc.next();
+                System.out.print("Invalid Data! Re-enter: ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        //Declare var
         Scanner sc= new Scanner(System.in);
-        String  movie, location, session = null;
-        int     paxChild = 0, paxStandard = 0, paxSenior ;
-        double  paxCPrice = 0.00, paxStPrice= 0.00, paxSePrice = 0.00, totalPrice = 0.00 ;
+        String  movie=null, location=null, session=null;
+        int     paxChild=0, paxStandard=0, paxSenior=0 ;
+        double  paxCPrice=0.00d, paxStPrice=0.00d, paxSePrice=0.00d, totalPrice=0.00d;
 
         // Title: ISOCine (Ascii Syntax)
         System.out.println("         /$$$$$$  /$$$$$$   /$$$$$$   /$$$$$$  /$$                          ");
@@ -30,20 +55,24 @@ public class ISOCine {
 
 
         System.out.println("\n");
-        System.out.println("1 - Midvalley");
-
-        System.out.println("2 - Quill City Mall");
-
-        System.out.println("3 - KLCC Shopping Centre");
-
-        System.out.println("4 - Pavillion");
-
-        System.out.println("5 - 1 Utama Shopping Centre");
-
-        System.out.println("6 - Bangsar South");
+        System.out.println(" ___________________________________________________________________________________ "  );
+        System.out.println("|                                    LOCATION                                       |"  );
+        System.out.println("|___________________________________________________________________________________|"  );
+        System.out.println("|                   1 - Midvalley                                                   |"  );
+        System.out.println("|                   2 - Quill City Mall                                             |"  );
+        System.out.println("|                   3 - KLCC Shopping Centre                                        |"  );
+        System.out.println("|                   4 - Pavillion                                                   |"  );
+        System.out.println("|                   5 - 1 Utama Shopping Centre                                     |"  );
+        System.out.println("|                   6 - Bangsar South                                               |"  );
+        System.out.println("|___________________________________________________________________________________|"  );
 
         System.out.print("\nPlease Select No. for Your Location ( 1 - 6 ): ");  //Prompt for location
         location = sc.nextLine();                                                //Get location
+        while(!CheckError(location, "[1-6]")){
+            System.out.print("Invalid Syntax! Re-enter your location selection ( 1 - 6 ): ");
+            location = sc.nextLine();
+
+        }
         switch (location){
             case "1":
                 location = "MidValley";
@@ -68,36 +97,47 @@ public class ISOCine {
         }
 
         System.out.println("\n");
-        System.out.println("1 - Naruto: The Last Movie");
-
-        System.out.println("2 - Kimi no Nawa");
-
-        System.out.println("3 - Boku no Hero Academia");
-
-        System.out.println("4 - Final Fantasy VII: Advent Children");
-
-        System.out.println("5 - One Piece: Stampede");
+        System.out.println(" ___________________________________________________________________________________ "  );
+        System.out.println("|                                   MOVIE                                           |"  );
+        System.out.println("|___________________________________________________________________________________|"  );
+        System.out.println("|                      1 - Naruto: The Last Movie                                   |"  );
+        System.out.println("|                      2 - Kimi no Nawa                                             |"  );
+        System.out.println("|                      3 - Boku no Hero Academia                                    |"  );
+        System.out.println("|                      4 - Final Fantasy VII: Advent Children                       |"  );
+        System.out.println("|                      5 - One Piece: Stampede                                      |"  );
+        System.out.println("|___________________________________________________________________________________|"  );
 
         System.out.print("\nPlease Select No. for Your Movie ( 1 - 5 ): ");     //Prompt for movie
         movie = sc.nextLine();                                                   //Get movie
+
+        while(!CheckError(movie, "[1-5]")){
+            System.out.print("Invalid Syntax! Re-enter your movie selection ( 1 - 5 ): ");
+            movie = sc.nextLine();
+
+        }
 
         System.out.print("\n\n");
 
         if ("1".equals(movie)) {
             movie = "Naruto: The Last Movie";
-
-            System.out.println("1 - 11.15am");
-
-            System.out.println("2 -  4.30pm");
-
-            System.out.println("3 -  4.50pm");
-
-            System.out.println("4 -  7.10pm");
-
+            System.out.println(" ____________________________________________________________________________________ ");
+            System.out.println("|                                 SESSION                                            |");
+            System.out.println("|____________________________________________________________________________________|");
+            System.out.println("|                               1 - 11.15am                                          |");
+            System.out.println("|                               2 -  4.30pm                                          |");
+            System.out.println("|                               3 -  4.50pm                                          |");
+            System.out.println("|                               4 -  7.10pm                                          |");
+            System.out.println("|____________________________________________________________________________________|");
 
             System.out.print("\nPlease Select No. for Your Session (1 - 4): ");  //Prompt for location
 
             session = sc.nextLine();                                    //Get location
+
+            while(!CheckError(session, "[1-4]")){
+                System.out.print("Invalid Syntax! Re-enter your session selection ( 1 - 4 ): ");
+                session = sc.nextLine();
+
+            }
 
             switch (session){
                 case "1":
@@ -119,14 +159,22 @@ public class ISOCine {
         } else if ("2".equals(movie)) {
             movie = "Kimi no Nawa";
 
-            System.out.println("1 - 2.40pm");
-
-            System.out.println("2 - 4.00pm");
-
+            System.out.println(" ___________________________________________________________________________________ ");
+            System.out.println("|                                   SESSION                                         | ");
+            System.out.println("|___________________________________________________________________________________| ");
+            System.out.println("|                                1 - 2.40pm                                         |" );
+            System.out.println("|                                2 - 4.00pm                                         |" );
+            System.out.println("|___________________________________________________________________________________|");
 
             System.out.print("\nPlease Select No. for Your Session (1 or 2): ");  //Prompt for location
 
             session = sc.nextLine();                                    //Get location
+
+            while(!CheckError(session, "[1-2]")){
+                System.out.print("Invalid Syntax! Re-enter your session selection ( 1 - 2 ): ");
+                session = sc.nextLine();
+
+            }
 
             switch (session){
                 case "1":
@@ -140,16 +188,22 @@ public class ISOCine {
             }
         } else if ("3".equals(movie)) {
             movie = "Boku no Hero Academia";
-
-            System.out.println("1 - 1.30pm");
-
-            System.out.println("2 - 5.15pm");
-
-            System.out.println("3 - 7.45pm");
-
+            System.out.println(" ____________________________________________________________________________________ ");
+            System.out.println("|                                     SESSION                                        |");
+            System.out.println("|____________________________________________________________________________________|");
+            System.out.println("|                                   1 - 1.30pm                                       |");
+            System.out.println("|                                   2 - 5.15pm                                       |");
+            System.out.println("|                                   3 - 7.45pm                                       |");
+            System.out.println("|____________________________________________________________________________________|");
             System.out.print("\nPlease Select No. for Your Session (1 - 3): ");  //Prompt for location
 
             session = sc.nextLine();                                    //Get location
+
+            while(!CheckError(session, "[1-3]")){
+                System.out.print("Invalid Syntax! Re-enter your location selection ( 1 - 3 ): ");
+                session = sc.nextLine();
+
+            }
 
             switch (session){
                 case "1":
@@ -168,13 +222,22 @@ public class ISOCine {
         } else if ("4".equals(movie)) {
             movie = "Final Fantasy VII: Advent Children";
 
-            System.out.println("1 - 11.30am");
-
-            System.out.println("2 - 2.45pm");
+            System.out.println("  ___________________________________________________________________________________");
+            System.out.println(" |                                    SESSION                                        |");
+            System.out.println(" |___________________________________________________________________________________|");
+            System.out.println(" |                                 1 - 11.30am                                       |");
+            System.out.println(" |                                 2 -  2.45pm                                       |");
+            System.out.println(" |___________________________________________________________________________________|");
 
             System.out.print("\nPlease Select No. for Your Session (1 or 2): ");  //Prompt for location
 
             session = sc.nextLine();                                    //Get location
+
+            while(!CheckError(session, "[1-2]")){
+                System.out.print("Invalid Syntax! Re-enter your location selection ( 1 - 2 ): ");
+                session = sc.nextLine();
+
+            }
 
             switch (session){
                 case "1":
@@ -189,18 +252,24 @@ public class ISOCine {
 
         } else if ("5".equals(movie)) {
             movie = "One Piece: Stampede";
-
-            System.out.println("1 - 4.15pm");
-
-            System.out.println("2 - 5.45pm");
-
-            System.out.println("3 - 8.20pm");
-
-            System.out.println("4 - 9.10pm");
+            System.out.println(" ____________________________________________________________________________________ ");
+            System.out.println("|                                     SESSION                                        |");
+            System.out.println("|____________________________________________________________________________________|");
+            System.out.println("|                                  1 - 4.15pm                                        |");
+            System.out.println("|                                  2 - 5.45pm                                        |");
+            System.out.println("|                                  3 - 8.20pm                                        |");
+            System.out.println("|                                  4 - 9.10pm                                        |");
+            System.out.println("|____________________________________________________________________________________|");
 
             System.out.print("\nPlease Select No. for Your Session (1 - 4): ");  //Prompt for location
 
             session = sc.nextLine();                                    //Get location
+
+            while(!CheckError(session, "[1-4]")){
+                System.out.print("Invalid Syntax! Re-enter your location selection ( 1 - 4 ): ");
+                session = sc.nextLine();
+
+            }
 
             switch (session){
                 case "1":
@@ -226,15 +295,18 @@ public class ISOCine {
         System.out.println("\n\n");
 
         System.out.print("Please enter total of child ( 4 y/o - 12 y/o):                ");
-        paxChild = sc.nextInt();
+
+        isNumber(paxChild);
+
+
         paxCPrice = paxChild * 8 ;
 
         System.out.print("Please enter total of standard (13 y/o - 35 y/o):             ");
-        paxStandard = sc.nextInt();
+        isNumber(paxStandard);
         paxStPrice = paxStandard * 12 ;
 
         System.out.print("Please enter total of senior citizen: (36 y/o and above):     ");
-        paxSenior = sc.nextInt();
+        isNumber(paxSenior);
         paxSePrice = paxSenior * 10 ;
 
         totalPrice = paxCPrice + paxSePrice + paxStPrice ;
