@@ -99,8 +99,6 @@ public class ISOCine {
         //  Get movie
         movie = sc.nextLine();
 
-        System.out.print("\n\n");
-
 
         //++++++++++++++++++++++++++++++++++++++++++        Session         ++++++++++++++++++++++++++++++++++++++++++++
         if ("1".equals(movie)) {
