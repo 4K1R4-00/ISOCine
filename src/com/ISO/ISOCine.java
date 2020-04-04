@@ -57,7 +57,7 @@ public class ISOCine {
         System.out.println("        |______/ \\______/  \\______/  \\______/ |__/|__/  |__/ \\_______/  ");
 
         System.out.println("        =============================================================== ");
-        System.out.println("                                             ");
+        System.out.println("                          Welcome to ISOCine Cinema                     ");
         System.out.println("        =============================================================== ");
 
 
