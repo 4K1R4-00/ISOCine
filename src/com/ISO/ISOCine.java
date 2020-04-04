@@ -7,33 +7,6 @@ import java.util.*;
 
 public class ISOCine {
 
-    private static boolean CheckError(String x, String y){
-        return x.matches(y);
-    }
-
-    public static int isNumber(int s){
-        boolean incorrectInput = true;
-        Scanner sc = new Scanner(System.in);
-        while (incorrectInput) {
-
-            if (sc.hasNextInt()) {
-                int n = sc.nextInt();
-                if (n < 0) {
-                System.out.print("Invalid Data! Please re-enter: ");
-
-                } else {
-                    // do anything else
-                    s = n;
-                    incorrectInput = false;
-                }
-            } else {
-                sc.next();
-                System.out.print("Invalid Data! Please re-enter: ");
-            }
-        }
-        return s;
-    }
-
 // ==========================================       Method main         ================================================
 
     public static void main(String[] args) {
