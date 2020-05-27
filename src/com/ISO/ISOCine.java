@@ -1,10 +1,38 @@
 package com.ISO;
 
 
-
+import java.io.PrintStream;
+import java.time.Clock;
 import java.util.*;
 
 public class ISOCine {
+
+    private static boolean CheckError(String x, String y){
+        return x.matches(y);
+    }
+
+    public static int isNumber(int s){
+        boolean incorrectInput = true;
+        Scanner sc = new Scanner(System.in);
+        while (incorrectInput) {
+
+            if (sc.hasNextInt()) {
+                int n = sc.nextInt();
+                if (n < 0) {
+                System.out.print("Invalid Data! Please re-enter: ");
+
+                } else {
+                    // do anything else
+                    s = n;
+                    incorrectInput = false;
+                }
+            } else {
+                sc.next();
+                System.out.print("Invalid Data! Please re-enter: ");
+            }
+        }
+        return s;
+    }
 
 // ==========================================       Method main         ================================================
 
@@ -53,6 +81,12 @@ public class ISOCine {
         //  Get location
         location = sc.nextLine();
 
+        //  Validation Input using "CheckError()" function for location
+        while(!CheckError(location, "[1-6]")){
+            System.out.print("Invalid Syntax! Re-enter your location selection ( 1 - 6 ): ");
+            location = sc.nextLine();
+        }
+
         //  Selection phase to assign value to location variable
         switch (location){
             case "1":
@@ -98,6 +132,14 @@ public class ISOCine {
         //  Get movie
         movie = sc.nextLine();
 
+        //  Validation Input using "CheckError()" function for movie
+        while(!CheckError(movie, "[1-5]")){
+            System.out.print("Invalid Syntax! Re-enter your movie selection ( 1 - 5 ): ");
+            movie = sc.nextLine();
+        }
+
+        System.out.print("\n\n");
+
 
         //++++++++++++++++++++++++++++++++++++++++++        Session         ++++++++++++++++++++++++++++++++++++++++++++
         if ("1".equals(movie)) {
@@ -117,6 +159,12 @@ public class ISOCine {
 
             //  Get session
             session = sc.nextLine();
+
+            //  Validation Input using "CheckError()" function for session ("Naruto")
+            while(!CheckError(session, "[1-4]")){
+                System.out.print("Invalid Syntax! Re-enter your session selection ( 1 - 4 ): ");
+                session = sc.nextLine();
+            }
 
             //  Selection phase to assign value to session variable
             switch (session){
@@ -153,6 +201,12 @@ public class ISOCine {
             //  Get location
             session = sc.nextLine();
 
+            //  Validation Input using "CheckError()" function for session ("Kimi no Nawa")
+            while(!CheckError(session, "[1-2]")){
+                System.out.print("Invalid Syntax! Re-enter your session selection ( 1 - 2 ): ");
+                session = sc.nextLine();
+            }
+
             //  Selection phase to assign value to session variable
             switch (session){
                 case "1":
@@ -182,6 +236,12 @@ public class ISOCine {
 
             //  Get session
             session = sc.nextLine();
+
+            //  Validation Input using "CheckError()" function for session ("Boku no Hero Academia")
+            while(!CheckError(session, "[1-3]")){
+                System.out.print("Invalid Syntax! Re-enter your location selection ( 1 - 3 ): ");
+                session = sc.nextLine();
+            }
 
             //  Selection phase to assign value to session variable
             switch (session){
@@ -215,6 +275,12 @@ public class ISOCine {
             //  Get session
             session = sc.nextLine();
 
+            //  Validation Input using "CheckError()" function for session ("Final Fantasy")
+            while(!CheckError(session, "[1-2]")){
+                System.out.print("Invalid Syntax! Re-enter your location selection ( 1 - 2 ): ");
+                session = sc.nextLine();
+            }
+
             //  Selection phase to assign value to session variable
             switch (session){
                 case "1":
@@ -245,6 +311,12 @@ public class ISOCine {
 
             //  Get session
             session = sc.nextLine();
+
+            //  Validation Input using "CheckError()" function for session ("One Piece")
+            while(!CheckError(session, "[1-4]")){
+                System.out.print("Invalid Syntax! Re-enter your location selection ( 1 - 4 ): ");
+                session = sc.nextLine();
+            }
 
             //  Selection phase to assign value to session variable
             switch (session){
@@ -279,8 +351,8 @@ public class ISOCine {
         //  Prompt for Child Pax
         System.out.print("Please enter total of child ( 4 y/o - 12 y/o):                ");
 
-        //  Get Child Pax
-        paxChild = sc.nextInt();
+        //  Get Child Pax and Validate using "isNumber()" function
+        paxChild = isNumber(paxChild);
 
         //  Total Price for Child
         paxCPrice = paxChild * 8 ;
@@ -289,8 +361,8 @@ public class ISOCine {
         //  Prompt for Standard Pax
         System.out.print("Please enter total of standard (13 y/o - 35 y/o):             ");
 
-        //  Get Standard Pax
-        paxStandard = sc.nextInt();
+        //  Get Standard Pax and Validate using "isNumber()" function
+        paxStandard = isNumber(paxStandard);
 
         //  Total Price for Standard
         paxStPrice = paxStandard * 12 ;
@@ -299,8 +371,8 @@ public class ISOCine {
         //  Prompt for Senior Citizen Pax
         System.out.print("Please enter total of senior citizen: (36 y/o and above):     ");
 
-        //  Get Senior Citizen Pax
-        paxSenior = sc.nextInt();
+        //  Get Senior Citizen Pax and Validate using "isNumber()" function
+        paxSenior = isNumber(paxSenior);
 
         //  Total Price for Senior Citizen Pax
         paxSePrice = paxSenior * 10 ;
