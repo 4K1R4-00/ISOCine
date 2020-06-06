@@ -443,23 +443,26 @@ public class ISOCine {
 
         } while((resume).equals("Y") || (resume).equals("y"));
 
+
+        //++++++++++++++++++++++++++++++++++++++++       TOTAL PROFIT      +++++++++++++++++++++++++++++++++++++++++++++
+
         System.out.println("\n");
-        System.out.println("===================================");
-        System.out.println("               BRANCH              ");
-        System.out.println("===================================");
-        System.out.println("Midvalley           : RM "+profit[0]);
-        System.out.println("Quill City Mall     : RM "+profit[1]);
-        System.out.println("KL Shopping Centre  : RM "+profit[2]);
-        System.out.println("Pavillion           : RM "+profit[3]);
+        System.out.println("=====================================");
+        System.out.println("                 BRANCH              ");
+        System.out.println("=====================================");
+        System.out.println("Midvalley             : RM "+profit[0]);
+        System.out.println("Quill City Mall       : RM "+profit[1]);
+        System.out.println("KLCC Shopping Centre  : RM "+profit[2]);
+        System.out.println("Pavillion             : RM "+profit[3]);
 
         totalPrice = 0;
         for(double eachProfit : profit ){
             totalPrice +=eachProfit;
 
         }
-        System.out.println("------------------------------------");
-        System.out.println("Total Profit        : RM "+totalPrice);
-        System.out.println("------------------------------------");
+        System.out.println("--------------------------------------");
+        System.out.println("Total Profit          : RM "+totalPrice);
+        System.out.println("--------------------------------------");
 
 
         
